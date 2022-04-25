@@ -10,6 +10,7 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ phone, email, address }) => {
   return (
     <Box bg='red'>
+      Let us keep in touch!
       {phone}
       {email}
       {address}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Flex, Heading, Button } from '@chakra-ui/react'
+import { Box, Flex, Heading, Button } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
 // TODO: Might have to change the title to logo : JSX.Element
@@ -13,15 +13,17 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ title, links }) => {
   return (
-    <Box bg='red'>
+    <Flex bg='black' padding='6'>
       <Flex>
-        <Heading>{title}</Heading>
+        <Heading size='lg'>{title}</Heading>
         {links.map((link, i) => (
           <NextLink key={i} href={link.href} passHref>
-            <Button>{link.label}</Button>
+            <Box pl='12' pt='2'>
+              <Button variant='link'>{link.label}</Button>
+            </Box>
           </NextLink>
         ))}
       </Flex>
-    </Box>
+    </Flex>
   )
 }
