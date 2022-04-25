@@ -1,0 +1,14 @@
+{
+  "branding": "Calodesign",
+  "links": [
+    { "label": "Projects", "href": "#" },
+    { "label": "About", "href": "#" },
+    { "label": "Contact", "href": "#" }
+  ],
+  "contacts": {
+    "phone": "0977 837-0725",
+    "email": "calodesign.ph@gmail.com",
+    "address": "238 Mayon Street, Quezon City, Metro Manilla"
+  }
+  
+}
