@@ -1,3 +1,5 @@
 export * from './layouts/Layout'
 export * from './ui/Header'
 export * from './ui/Footer'
+export * from './ui/projects/Project'
+export * from './ui/projects/ProjectList'

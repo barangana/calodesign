@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '../ui/Header'
-import { branding, links, contacts } from '../../utils/info.json'
+import info from '../../utils/info.json'
 import { Footer } from '../ui/Footer'
 
 interface LayoutProps {
@@ -10,12 +10,12 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <Header title={branding} links={links} />
+      <Header title={info.branding} links={info.links} />
       {children}
       <Footer
-        phone={contacts.phone}
-        email={contacts.email}
-        address={contacts.address}
+        phone={info.contacts.phone}
+        email={info.contacts.email}
+        address={info.contacts.address}
       />
     </>
   )

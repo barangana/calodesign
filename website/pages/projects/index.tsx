@@ -1,6 +1,8 @@
+import { Heading } from '@chakra-ui/react'
 import React from 'react'
 import { sanityClient } from '../../clients/sanity'
-import { Layout } from '../../components'
+import { Layout, ProjectList } from '../../components'
+import { projectsQuery } from '../../helpers/queries/projects'
 import { Project } from '../../typings'
 
 interface Projects {
@@ -8,23 +10,22 @@ interface Projects {
 }
 
 const Projects = ({ data }: Projects) => {
-  console.log(data[0])
+  console.log(data)
   return (
-    <Layout>
-      <div>{data[0].title}</div>
-    </Layout>
+    <>
+      <Layout>
+        <Heading>Our projects</Heading>
+        <ProjectList />
+        {data.map((d) => (
+          <div key={d._id}>{d.title}</div>
+        ))}
+      </Layout>
+    </>
   )
 }
 
 export const getStaticProps = async () => {
-  const query = `
-  *[_type == "post"]{
-    _id,
-    title,
-    body  
-  }`
-
-  const projects = await sanityClient.fetch(query)
+  const projects = await sanityClient.fetch(projectsQuery)
 
   return {
     props: {

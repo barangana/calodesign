@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, Heading } from '@chakra-ui/react'
 
 interface FooterProps {
   phone: string
@@ -9,11 +9,14 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ phone, email, address }) => {
   return (
-    <Box bg='red'>
-      Let us keep in touch!
-      {phone}
-      {email}
-      {address}
-    </Box>
+    <Flex justify='space-evenly'>
+      <Box>
+        <Heading>Let's keep in touch!</Heading>
+        <Box>{phone}</Box>
+        <Box>{email}</Box>
+        <Box>{address}</Box>
+      </Box>
+      <Box>Social Medias</Box>
+    </Flex>
   )
 }
