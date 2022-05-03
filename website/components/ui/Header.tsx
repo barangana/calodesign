@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Heading, Button, Link } from '@chakra-ui/react'
+import { Box, Flex, Heading, Link } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
 // TODO: Might have to change the title to logo : JSX.Element
