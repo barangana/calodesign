@@ -1,9 +1,14 @@
 import { NextPage } from 'next'
 import React from 'react'
-import { Layout } from '../components'
+import { Contacts, Layout } from '../components'
+import info from '../utils/info.json'
 
 export const ContactPage: NextPage = () => {
-  return <Layout>Contact Page</Layout>
+  return (
+    <Layout>
+      <Contacts contacts={info.contacts} height='100vh' />
+    </Layout>
+  )
 }
 
 export default ContactPage

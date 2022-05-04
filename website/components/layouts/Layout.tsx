@@ -12,11 +12,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     <>
       <Header title={info.branding} links={info.links} />
       {children}
-      <Footer
-        phone={info.contacts.phone}
-        email={info.contacts.email}
-        address={info.contacts.address}
-      />
+      <Footer />
     </>
   )
 }
