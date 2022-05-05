@@ -2,7 +2,6 @@ export interface Config {
   sanity: {
     projectId: string
     dataset: string
-    // token: string
   }
 }
 

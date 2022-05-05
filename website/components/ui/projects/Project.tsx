@@ -1,15 +1,18 @@
 import { Box, Heading, HStack, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import { useState } from 'react'
+import { urlFor } from '../../../clients/sanity'
+import { Project } from '../../../typings'
 
-interface ProjectProps {
-  title: string
-  type: string
-  size: string
+interface ProjectsProps {
+  project: Project
 }
 
-export const ProjectCard: React.FC<ProjectProps> = ({ title, type, size }) => {
+export const ProjectCard: React.FC<ProjectsProps> = ({ project }) => {
   const [isShown, setIsShown] = useState(false)
+  const imageUrl = project.mainImage
+    ? urlFor(project.mainImage.asset).width(620).height(560).url()
+    : ''
 
   return (
     <Box
@@ -21,24 +24,30 @@ export const ProjectCard: React.FC<ProjectProps> = ({ title, type, size }) => {
         setIsShown(false)
       }}
     >
-      <Image src={'/test.jpg'} alt='test' width={620} height={560} />
+      <Image src={imageUrl} alt='test' width={620} height={560} />
       {isShown ? (
         <>
           <HStack position='absolute' top='0px'>
             <Text size='sm' color='white'>
-              {type}
+              {project.type}
             </Text>
             <Text size='sm' color='white'>
-              {size}
+              {project.size}
             </Text>
           </HStack>
           <Box position='absolute' bottom='8px'>
             <Heading size='lg' color='white'>
-              {title}
+              {project.title}
             </Heading>
           </Box>
         </>
-      ) : null}
+      ) : (
+        <>
+          <Text>{project.title}</Text>
+          <Text>{project.size}</Text>
+          <Text>{project.type}</Text>
+        </>
+      )}
     </Box>
   )
 }

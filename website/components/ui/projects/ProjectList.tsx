@@ -1,11 +1,19 @@
 import { HStack } from '@chakra-ui/react'
 import React from 'react'
 import { ProjectCard } from './Project'
+import { Project } from '../../../typings'
 
-export const ProjectList = () => {
+interface ProjectsProps {
+  projects: [Project]
+}
+
+export const ProjectList: React.FC<ProjectsProps> = ({ projects }) => {
   return (
     <HStack>
-      <ProjectCard title={'test'} type={'test'} size={'test'} />
+      {/* <ProjectCard title={'test'} type={'test'} size={'test'} /> */}
+      {projects.map((project) => (
+        <ProjectCard key={project._id} project={project} />
+      ))}
     </HStack>
   )
 }

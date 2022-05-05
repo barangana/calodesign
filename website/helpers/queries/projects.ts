@@ -7,3 +7,13 @@ export const projectsQuery = `
   title
 }
 `
+export const minimalInfoProjectsQuery = `
+*[_type == "project"]{
+  _id,
+  slug,
+  mainImage,
+  title,
+  size,
+  type
+}
+`
