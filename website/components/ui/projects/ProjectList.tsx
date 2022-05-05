@@ -10,7 +10,6 @@ interface ProjectsProps {
 export const ProjectList: React.FC<ProjectsProps> = ({ projects }) => {
   return (
     <HStack>
-      {/* <ProjectCard title={'test'} type={'test'} size={'test'} /> */}
       {projects.map((project) => (
         <ProjectCard key={project._id} project={project} />
       ))}

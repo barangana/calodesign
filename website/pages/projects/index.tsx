@@ -1,5 +1,4 @@
 import { Heading } from '@chakra-ui/react'
-import Link from 'next/link'
 import React from 'react'
 import { sanityClient } from '../../clients/sanity'
 import { Layout, ProjectList } from '../../components'

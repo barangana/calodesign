@@ -7,7 +7,10 @@ export interface Config {
 
 export const config: Config = {
   sanity: {
-    projectId: process.env.NEXT_SANITY_PROJECT_ID || '',
+    //all of a sudden stopped working ??
+    // projectId: process.env.NEXT_SANITY_PROJECT_ID || '',
+
+    projectId: 'lnpf4tn5' || '',
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   },
 }

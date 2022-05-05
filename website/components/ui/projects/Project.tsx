@@ -1,5 +1,6 @@
 import { Box, Heading, HStack, Text } from '@chakra-ui/react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import { urlFor } from '../../../clients/sanity'
 import { Project } from '../../../typings'
@@ -15,39 +16,35 @@ export const ProjectCard: React.FC<ProjectsProps> = ({ project }) => {
     : ''
 
   return (
-    <Box
-      position='relative'
-      onMouseEnter={() => {
-        setIsShown(true)
-      }}
-      onMouseLeave={() => {
-        setIsShown(false)
-      }}
-    >
-      <Image src={imageUrl} alt='test' width={620} height={560} />
-      {isShown ? (
-        <>
-          <HStack position='absolute' top='0px'>
-            <Text size='sm' color='white'>
-              {project.type}
-            </Text>
-            <Text size='sm' color='white'>
-              {project.size}
-            </Text>
-          </HStack>
-          <Box position='absolute' bottom='8px'>
-            <Heading size='lg' color='white'>
-              {project.title}
-            </Heading>
-          </Box>
-        </>
-      ) : (
-        <>
-          <Text>{project.title}</Text>
-          <Text>{project.size}</Text>
-          <Text>{project.type}</Text>
-        </>
-      )}
-    </Box>
+    <Link href={`/projects/${project.slug.current}`} passHref>
+      <Box
+        position='relative'
+        onMouseEnter={() => {
+          setIsShown(true)
+        }}
+        onMouseLeave={() => {
+          setIsShown(false)
+        }}
+      >
+        <Image src={imageUrl} alt='test' width={620} height={560} />
+        {isShown ? (
+          <>
+            <HStack position='absolute' top='0px'>
+              <Text size='sm' color='white'>
+                {project.type}
+              </Text>
+              <Text size='sm' color='white'>
+                {project.size}
+              </Text>
+            </HStack>
+            <Box position='absolute' bottom='8px'>
+              <Heading size='lg' color='white'>
+                {project.title}
+              </Heading>
+            </Box>
+          </>
+        ) : null}
+      </Box>
+    </Link>
   )
 }
