@@ -13,6 +13,6 @@ export interface Project {
   type: string
   mainImage: SanityImage
   slug: {
-    current: 'string'
+    current: string
   }
 }

@@ -1,5 +1,5 @@
 export const projectsQuery = `
-*[_type == "post"]{
+*[_type == "project" && slug.current == $slug][0]{
   _id,
   slug,
   body,
@@ -10,7 +10,18 @@ export const projectsQuery = `
 export const minimalInfoProjectsQuery = `
 *[_type == "project"]{
   _id,
-  slug,
+  slug{
+    current
+  },
+}
+`
+
+export const multipleProjectsQuery = `
+*[_type == "project"]{
+  _id,
+  slug{
+    current
+  },
   mainImage,
   title,
   size,

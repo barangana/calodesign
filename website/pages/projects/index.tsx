@@ -2,7 +2,7 @@ import { Heading } from '@chakra-ui/react'
 import React from 'react'
 import { sanityClient } from '../../clients/sanity'
 import { Layout, ProjectList } from '../../components'
-import { minimalInfoProjectsQuery } from '../../helpers/queries/projects'
+import { multipleProjectsQuery } from '../../helpers/queries/projects'
 import { Project } from '../../typings'
 
 interface Projects {
@@ -21,7 +21,7 @@ const Projects = ({ data }: Projects) => {
 }
 
 export const getStaticProps = async () => {
-  const projects = await sanityClient.fetch(minimalInfoProjectsQuery)
+  const projects = await sanityClient.fetch(multipleProjectsQuery)
 
   return {
     props: {
