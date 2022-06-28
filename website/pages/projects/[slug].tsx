@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { sanityClient, urlFor } from '../../clients/sanity'
+import { sanityClient } from '../../clients/sanity'
 import {
   minimalInfoProjectsQuery,
   projectsQuery,
