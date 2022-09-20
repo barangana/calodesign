@@ -6,10 +6,7 @@ import info from '../utils/info.json'
 const Home: NextPage = () => {
   return (
     <Layout>
-      <Hero />
-      <Box>Home page</Box>
-      <Social />
-      <Contacts contacts={info.contacts} height='2xl' />
+      <Box>Main Content</Box>
     </Layout>
   )
 }

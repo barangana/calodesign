@@ -1,16 +1,12 @@
 {
   "copyright": "© ${new Date().getFullYear()} all rights reserved.",
   "branding": "Calodesign",
-  "links": [
-    { "label": "Projects", "href": "/projects" },
-    { "label": "About", "href": "/about" },
-    { "label": "Contact", "href": "/contact" }
-  ],
   "contacts": {
     "phone": "0977 837-0725",
     "email": "calodesign.ph@gmail.com",
     "address": "238 Mayon Street, Quezon City, Metro Manilla"
   },
   "instagram": "@calodesign.ph",
-  "socialtext": "Let’s get in touch! Follow us on social media to see all the latest projects"
+  "socialtext": "Let’s get in touch! Follow us on social media to see all the latest projects",
+  "request_button": "Make Request"
 }

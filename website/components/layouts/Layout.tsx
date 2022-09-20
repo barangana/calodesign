@@ -2,6 +2,7 @@ import React from 'react'
 import { Header } from '../ui/Header'
 import info from '../../utils/info.json'
 import { Footer } from '../ui/Footer'
+import { Container } from '@chakra-ui/react'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -9,10 +10,10 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <>
-      <Header title={info.branding} links={info.links} />
+    <Container maxW='container.xl'>
+      <Header title={info.branding} />
       {children}
       <Footer />
-    </>
+    </Container>
   )
 }
