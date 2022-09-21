@@ -1,5 +1,6 @@
 {
-  "copyright": "© ${new Date().getFullYear()} all rights reserved.",
+  "copyright": "© ",
+  "copyright_rights": "All rights reserved.",
   "branding": "Calodesign",
   "contacts": {
     "phone": "0977 837-0725",
