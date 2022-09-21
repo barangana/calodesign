@@ -36,5 +36,11 @@ export const project = {
       description: 'What is the type of the location?',
       type: 'string',
     },
+    {
+      name: 'imagesGallery',
+      title: 'Images gallery',
+      type: 'array',
+      of: [{ type: 'image' }],
+    },
   ],
 }
