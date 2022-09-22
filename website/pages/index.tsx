@@ -7,6 +7,7 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <Box>Main Content</Box>
+      <Contacts />
     </Layout>
   )
 }

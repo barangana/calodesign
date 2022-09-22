@@ -1,24 +1,44 @@
 import React from 'react'
-import { Box, Flex, Heading } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Stack, Text } from '@chakra-ui/react'
+import info from '../../utils/info.json'
 
-interface ContactsProps {
-  contacts: {
-    phone: string
-    email: string
-    address: string
-  }
-  height?: string
-}
-
-export const Contacts: React.FC<ContactsProps> = ({ contacts, height }) => {
+export const Contacts: React.FC = () => {
   return (
-    <Flex justify='space-evenly' align='center' height={height} bg='black.50'>
-      <Box>
-        <Heading color='white'>Let's keep in touch!</Heading>
-        <Box color='gray.100'>{contacts.phone}</Box>
-        <Box color='gray.100'>{contacts.email}</Box>
-        <Box color='gray.100'>{contacts.address}</Box>
-      </Box>
+    <Flex bg='black' color='white' justify='space-around'>
+      <Stack py='20' direction='column' spacing='16'>
+        <Box px='8'>
+          <Heading size='lg'>{info.contacts_title}</Heading>
+          <Text pt='2' w={['', 64]}>
+            {info.contacts_small_title}
+          </Text>
+        </Box>
+        <Box px='8' w='64'>
+          <Heading size='sm' pb='4'>
+            {info.contacts.country}
+          </Heading>
+          <Text fontSize='xs'>{info.contacts.phone}</Text>
+          <Text fontSize='xs'>{info.contacts.address}</Text>
+        </Box>
+        <Flex px='8' display={['flex', 'flex', 'none', 'none']}>
+          <Box>
+            <Text fontSize='xs'>{info.contacts.email}</Text>
+            <Box bg='white'>buttons here</Box>
+          </Box>
+        </Flex>
+        <Box px='8'>
+          <Button variant='outline'>{info.request_button}</Button>
+        </Box>
+      </Stack>
+      <Flex
+        direction='row'
+        align='center'
+        display={['none', 'none', 'flex', 'flex']}
+      >
+        <Box>
+          <Text fontSize='xs'>{info.contacts.email}</Text>
+          <Box bg='white'>buttons here</Box>
+        </Box>
+      </Flex>
     </Flex>
   )
 }

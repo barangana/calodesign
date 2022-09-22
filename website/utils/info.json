@@ -3,11 +3,14 @@
   "copyright_rights": "All rights reserved.",
   "branding": "Calodesign",
   "contacts": {
+    "country": "Philippines",
     "phone": "0977 837-0725",
     "email": "calodesign.ph@gmail.com",
     "address": "238 Mayon Street, Quezon City, Metro Manilla"
   },
   "instagram": "@calodesign.ph",
   "socialtext": "Let’s get in touch! Follow us on social media to see all the latest projects",
-  "request_button": "Make Request"
+  "request_button": "Make Request",
+  "contacts_title": "Let's keep in touch!",
+  "contacts_small_title": "We will make your dream vision and your dream designs into reality!"
 }
