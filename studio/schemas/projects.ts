@@ -1,12 +1,14 @@
-export const project = {
-  title: 'Project',
-  name: 'project',
+export const projects = {
+  title: 'Projects',
+  name: 'projects',
   type: 'document',
   fields: [
     {
       name: 'title',
       title: 'Title',
       type: 'string',
+      description: 'Name of the project',
+      required: true,
     },
     {
       name: 'slug',
@@ -20,6 +22,7 @@ export const project = {
     {
       name: 'mainImage',
       title: 'Main Image',
+      description: 'Main image of the actual place or project.',
       type: 'image',
       options: {
         hotspot: true,
@@ -28,6 +31,8 @@ export const project = {
     {
       name: 'size',
       title: 'Size',
+      description: 'What is/was the physical size of the project?',
+      required: true,
       type: 'string',
     },
     {
