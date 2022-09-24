@@ -7,7 +7,7 @@ export const blogs = {
       name: 'title',
       title: 'Title',
       type: 'string',
-      required: true,
+      validation: (Rule) => Rule.required().min(5).max(90),
     },
     {
       name: 'slug',
@@ -23,7 +23,6 @@ export const blogs = {
       title: 'Main Image',
       type: 'image',
       description: 'The heading image of the blog',
-      required: true,
       options: {
         hotspot: true,
       },
@@ -33,7 +32,7 @@ export const blogs = {
       title: 'Content',
       type: 'text',
       description: 'The content of the blog',
-      required: true,
+      validation: (Rule) => Rule.required().min(5),
     },
   ],
 }

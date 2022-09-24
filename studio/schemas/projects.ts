@@ -8,7 +8,7 @@ export const projects = {
       title: 'Title',
       type: 'string',
       description: 'Name of the project',
-      required: true,
+      validation: (Rule) => Rule.required().min(5).max(90),
     },
     {
       name: 'slug',
@@ -32,14 +32,24 @@ export const projects = {
       name: 'size',
       title: 'Size',
       description: 'What is/was the physical size of the project?',
-      required: true,
-      type: 'string',
+      validation: (Rule) =>
+        Rule.required().min(1).warning('Numbers works best here'),
+      type: 'number',
     },
     {
       name: 'type',
       title: 'Type',
       description: 'What is the type of the location?',
+      validation: (Rule) => Rule.required().min(5).max(90),
       type: 'string',
+    },
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'text',
+      description:
+        'The description of the project or definition of this project entails.',
+      validation: (Rule) => Rule.required().min(10),
     },
     {
       name: 'imagesGallery',
