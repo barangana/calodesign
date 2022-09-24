@@ -1,10 +1,12 @@
-export const projectsQuery = `
-*[_type == "project" && slug.current == $slug][0]{
+export const singleProjectsQuery = `
+*[_type == "projects" && slug.current == $slug][0]{
   _id,
   slug,
-  body,
   mainImage,
-  title
+  title,
+  type,
+  content,
+  imagesGallery
 }
 `
 export const minimalInfoProjectsQuery = `
@@ -17,7 +19,7 @@ export const minimalInfoProjectsQuery = `
 `
 
 export const multipleProjectsQuery = `
-*[_type == "project"]{
+*[_type == "projects"]{
   _id,
   slug{
     current

@@ -1,25 +1,55 @@
+import { Box, Heading, Text } from '@chakra-ui/react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { sanityClient } from '../../clients/sanity'
+import Image from 'next/image'
+import { sanityClient, urlFor } from '../../clients/sanity'
+import { Layout } from '../../components'
 import {
   minimalInfoProjectsQuery,
-  projectsQuery,
+  singleProjectsQuery,
 } from '../../helpers/queries/projects'
-import { Project } from '../../typings'
+import { Project } from '../../utils/types/sanity-typings'
 
 interface ProjectProps {
   data: Project
 }
 
 const Project: NextPage<ProjectProps> = ({ data }) => {
-  console.log(data.title)
-  return <div>{data.title}</div>
+  const imageUrl = data.mainImage
+    ? urlFor(data.mainImage.asset).width(620).height(560).url()
+    : ''
+
+  const imageUrlForGallery = data.imagesGallery
+    ? data.imagesGallery.map((single) =>
+        urlFor(single.asset).width(620).height(560).url()
+      )
+    : []
+
+  return (
+    <Layout>
+      <Box>
+        <Heading>{data.title}</Heading>
+        <Box>{data.type}</Box>
+        <Box>{data.size}</Box>
+        <Image src={imageUrl} width={620} height={560} alt='Main Image' />
+        {imageUrlForGallery.map((singleUrl, i) => (
+          <Image
+            key={data.imagesGallery[i]._key}
+            src={singleUrl}
+            width={620}
+            height={560}
+            alt='Other angle image'
+          />
+        ))}
+        <Text>{data.content}</Text>
+      </Box>
+    </Layout>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const project = await sanityClient.fetch(projectsQuery, {
+  const project = await sanityClient.fetch(singleProjectsQuery, {
     slug: params?.slug,
   })
-  console.log(project)
 
   if (!project) {
     return { notFound: true }

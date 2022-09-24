@@ -1,7 +1,7 @@
 import { HStack } from '@chakra-ui/react'
 import React from 'react'
 import { ProjectCard } from './Project'
-import { Project } from '../../../typings'
+import { Project } from '../../../utils/types/sanity-typings'
 
 interface ProjectsProps {
   projects: [Project]

@@ -1,22 +1,21 @@
 import { Heading } from '@chakra-ui/react'
+import { NextPage } from 'next'
 import React from 'react'
 import { sanityClient } from '../../clients/sanity'
 import { Layout, ProjectList } from '../../components'
 import { multipleProjectsQuery } from '../../helpers/queries/projects'
-import { Project } from '../../typings'
+import { Project } from '../../utils/types/sanity-typings'
 
-interface Projects {
+interface ProjectsProps {
   data: [Project]
 }
 
-const Projects = ({ data }: Projects) => {
+const Projects: NextPage<ProjectsProps> = ({ data }) => {
   return (
-    <>
-      <Layout>
-        <Heading>Our projects</Heading>
-        <ProjectList projects={data} />
-      </Layout>
-    </>
+    <Layout>
+      <Heading>Our projects</Heading>
+      <ProjectList projects={data} />
+    </Layout>
   )
 }
 
