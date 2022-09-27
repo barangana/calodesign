@@ -2,7 +2,7 @@ import { Box, Heading, Text } from '@chakra-ui/react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { sanityClient, urlFor } from '../../clients/sanity'
-import { Layout } from '../../components'
+import { Hero, Layout } from '../../components'
 import {
   minimalInfoProjectsQuery,
   singleProjectsQuery,
@@ -15,7 +15,7 @@ interface ProjectProps {
 
 const Project: NextPage<ProjectProps> = ({ data }) => {
   const imageUrl = data.mainImage
-    ? urlFor(data.mainImage.asset).width(620).height(560).url()
+    ? urlFor(data.mainImage.asset).width(1080).height(1024).url()
     : ''
 
   const imageUrlForGallery = data.imagesGallery
@@ -27,10 +27,8 @@ const Project: NextPage<ProjectProps> = ({ data }) => {
   return (
     <Layout>
       <Box>
-        <Heading>{data.title}</Heading>
-        <Box>{data.type}</Box>
+        <Hero title={data.title} description={data.content} img={imageUrl} />
         <Box>{data.size}</Box>
-        <Image src={imageUrl} width={620} height={560} alt='Main Image' />
         {imageUrlForGallery.map((singleUrl, i) => (
           <Image
             key={data.imagesGallery[i]._key}
@@ -40,7 +38,6 @@ const Project: NextPage<ProjectProps> = ({ data }) => {
             alt='Other angle image'
           />
         ))}
-        <Text>{data.content}</Text>
       </Box>
     </Layout>
   )
