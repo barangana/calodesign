@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description, img }) => {
         <Heading pt={[32, 32, 48]} color='white'>
           {title}
         </Heading>
-        <Text pt='16' w={['', '96']} color='white'>
+        <Text pt={['4', '16']} w={['', '96']} color='white'>
           {description}
         </Text>
       </Box>
