@@ -7,7 +7,7 @@ export type SanityImage = {
   alt?: string
 }
 
-export interface Project {
+export type Project = {
   _id: string
   title: string
   size: string
@@ -18,4 +18,14 @@ export interface Project {
     current: string
   }
   content: string
+}
+
+export type Blogs = {
+  _id: string
+  title: string
+  content: string
+  mainImage: SanityImage
+  slug: {
+    current: string
+  }
 }

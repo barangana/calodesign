@@ -23,6 +23,7 @@ type LinksType = {
 
 const Links: LinksType[] = [
   { label: 'Projects', href: '/projects' },
+  { label: 'Blog', href: '/blogs' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
