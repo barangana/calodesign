@@ -31,7 +31,7 @@ const Links: LinksType[] = [
 export const Header: React.FC<HeaderProps> = ({ title }) => {
   const [display, setDisplay] = useState('none')
   return (
-    <Flex p={2} justify='space-between'>
+    <Flex p={2} justify='space-between' bg='black' color='white'>
       <Stack direction={['column', 'row']} align='center'>
         <NextLink href='/' passHref>
           <Link>
@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
         ))}
       </Stack>
       <Flex align='center' display={['none', 'none', 'flex', 'flex']}>
-        <Button variant='outline'>{info.request_button}</Button>
+        <Button variant='primary'>{info.request_button}</Button>
       </Flex>
       <IconButton
         aria-label='Open Menu'

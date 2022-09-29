@@ -1,6 +1,16 @@
 import React from 'react'
-import { Box, Button, Flex, Heading, Stack, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  IconButton,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
 import info from '../../utils/info.json'
+import { FiInstagram } from 'react-icons/fi'
+import Link from 'next/link'
 
 export const Contacts: React.FC = () => {
   return (
@@ -22,11 +32,11 @@ export const Contacts: React.FC = () => {
         <Flex px='8' display={['flex', 'flex', 'none', 'none']}>
           <Box>
             <Text fontSize='xs'>{info.contacts.email}</Text>
-            <Box bg='white'>buttons here</Box>
+            <IconButton aria-label='Instagram' icon={<FiInstagram />} />
           </Box>
         </Flex>
         <Box px='8'>
-          <Button variant='outline'>{info.request_button}</Button>
+          <Button variant='primary'>{info.request_button}</Button>
         </Box>
       </Stack>
       <Flex
@@ -36,7 +46,14 @@ export const Contacts: React.FC = () => {
       >
         <Box>
           <Text fontSize='xs'>{info.contacts.email}</Text>
-          <Box bg='white'>buttons here</Box>
+
+          <Link href={info.instagram}>
+            <IconButton
+              aria-label='Instagram'
+              icon={<FiInstagram />}
+              colorScheme='black'
+            />
+          </Link>
         </Box>
       </Flex>
     </Flex>
