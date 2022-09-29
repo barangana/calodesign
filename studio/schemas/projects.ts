@@ -56,6 +56,10 @@ export const projects = {
       title: 'Images gallery',
       type: 'array',
       of: [{ type: 'image' }],
+      validation: (Rule) =>
+        Rule.required().warning(
+          'Every odd number of picture should have size of 625x950. The gallery should have an even number of pictures to not mess with the styling'
+        ),
     },
   ],
 }
