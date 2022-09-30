@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react'
+import { Button } from './components'
 
 const theme = extendTheme({
   fonts: {
@@ -16,23 +17,7 @@ const theme = extendTheme({
     },
   },
   components: {
-    Button: {
-      variants: {
-        primary: {
-          bg: 'black',
-          color: 'white',
-          fontWeight: 'normal',
-          borderRadius: 0,
-          borderColor: 'white',
-          borderWidth: '1px',
-
-          _hover: {
-            bg: 'white',
-            color: 'black',
-          },
-        },
-      },
-    },
+    Button,
   },
 })
 
