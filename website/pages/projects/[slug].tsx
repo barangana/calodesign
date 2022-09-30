@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, SimpleGrid } from '@chakra-ui/react'
+import { Box, Grid, GridItem } from '@chakra-ui/react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { sanityClient, urlFor } from '../../clients/sanity'

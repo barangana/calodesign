@@ -4,6 +4,7 @@ import React from 'react'
 import { sanityClient } from '../../clients/sanity'
 import { Layout, Lists } from '../../components'
 import { multipleBlogsQuery } from '../../helpers/queries/projects'
+import { Section } from '../../utils/types/enums'
 import { Blogs } from '../../utils/types/sanity-typings'
 
 interface BlogsProps {
@@ -14,7 +15,7 @@ const Blogs: NextPage<BlogsProps> = ({ data }) => {
   return (
     <Layout>
       <Heading>Blogs</Heading>
-      <Lists data={data} />
+      <Lists data={data} section={Section.Blogs} />
     </Layout>
   )
 }

@@ -1,17 +1,19 @@
-import { Box } from '@chakra-ui/react'
+import { SimpleGrid } from '@chakra-ui/react'
 import React from 'react'
 import { Blogs, Project } from '../../utils/types/sanity-typings'
+import { Card } from './Card'
 
 interface ListProps {
   data: [Project | Blogs]
+  section: string
 }
 
-export const Lists: React.FC<ListProps> = ({ data }) => {
+export const Lists: React.FC<ListProps> = ({ data, section }) => {
   return (
-    <Box>
+    <SimpleGrid columns={2} spacingX={15}>
       {data.map((single) => (
-        <Box key={single._id}>{single.title}</Box>
+        <Card key={single._id} data={single} section={section} />
       ))}
-    </Box>
+    </SimpleGrid>
   )
 }
