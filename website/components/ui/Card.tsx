@@ -1,4 +1,5 @@
 import { Box, Heading, HStack, Text } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -11,6 +12,8 @@ interface CardProps {
   section: string
 }
 
+const MotionBox = motion(Box)
+
 export const Card: React.FC<CardProps> = ({ data, section }) => {
   const [isShown, setIsShown] = useState(false)
 
@@ -20,7 +23,8 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
 
   return (
     <Link href={`${section}/${data.slug.current}`}>
-      <Box
+      <MotionBox
+        cursor='pointer'
         position='relative'
         onMouseEnter={() => {
           setIsShown(true)
@@ -28,8 +32,16 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
         onMouseLeave={() => {
           setIsShown(false)
         }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
       >
-        <Image src={imageUrl} alt='test' width={620} height={560} />
+        <Image
+          src={imageUrl}
+          alt={`${data.title}'s image`}
+          width={620}
+          height={560}
+        />
         {isShown ? (
           <>
             <HStack position='absolute' top='0px'></HStack>
@@ -40,7 +52,7 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
             </Box>
           </>
         ) : null}
-      </Box>
+      </MotionBox>
     </Link>
   )
 }
