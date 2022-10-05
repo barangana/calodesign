@@ -42,3 +42,16 @@ export const multipleBlogsQuery = `
     content
   }
 `
+
+export const limitedProjectsQuery = `
+*[_type == "projects"][0..3]{
+  _id,
+  slug{
+    current
+  },
+  mainImage,
+  title,
+  size,
+  type
+}
+`

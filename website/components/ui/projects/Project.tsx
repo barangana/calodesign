@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Text } from '@chakra-ui/react'
+import { Box, chakra, Heading, HStack, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -16,6 +16,11 @@ export const ProjectCard: React.FC<ProjectsProps> = ({ project }) => {
     ? urlFor(project.mainImage.asset).width(620).height(560).url()
     : ''
 
+  const ProjectImage = chakra(Image, {
+    shouldForwardProp: (prop) =>
+      ['width', 'height', 'src', 'alt'].includes(prop),
+  })
+
   return (
     <Link href={`/projects/${project.slug.current}`} passHref>
       <Box
@@ -27,7 +32,16 @@ export const ProjectCard: React.FC<ProjectsProps> = ({ project }) => {
           setIsShown(false)
         }}
       >
-        <Image src={imageUrl} alt='test' width={620} height={560} />
+        <ProjectImage
+          src={imageUrl}
+          alt='test'
+          width={620}
+          height={560}
+          filter='auto'
+          _hover={{
+            brightness: '55%',
+          }}
+        />
         {isShown ? (
           <>
             <HStack position='absolute' top='0px'>
@@ -35,7 +49,7 @@ export const ProjectCard: React.FC<ProjectsProps> = ({ project }) => {
                 {project.type}
               </Text>
               <Text size='sm' color='white'>
-                {project.size}
+                {`${project.size} SQM`}
               </Text>
             </HStack>
             <Box position='absolute' bottom='8px'>

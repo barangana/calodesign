@@ -1,9 +1,10 @@
 import { Heading } from '@chakra-ui/react'
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { sanityClient } from '../../clients/sanity'
-import { Layout, ProjectList } from '../../components'
+import { Layout, Lists } from '../../components'
 import { multipleProjectsQuery } from '../../helpers/queries/projects'
+import { Section } from '../../utils/types/enums'
 import { Project } from '../../utils/types/sanity-typings'
 
 interface ProjectsProps {
@@ -14,12 +15,12 @@ const Projects: NextPage<ProjectsProps> = ({ data }) => {
   return (
     <Layout>
       <Heading>Our projects</Heading>
-      <ProjectList projects={data} />
+      <Lists data={data} section={Section.Projects} />
     </Layout>
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const projects = await sanityClient.fetch(multipleProjectsQuery)
 
   return {
