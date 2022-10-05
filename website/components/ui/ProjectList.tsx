@@ -1,17 +1,16 @@
-import { Box, Flex, Heading, SimpleGrid } from '@chakra-ui/react'
+import { Flex, Heading, SimpleGrid } from '@chakra-ui/react'
 import React from 'react'
-import { Section } from '../../../utils/types/enums'
-import { Project } from '../../../utils/types/sanity-typings'
-import { Card } from '../Card'
-import info from '../../../utils/info.json'
+import { Section } from '../../utils/types/enums'
+import { Project } from '../../utils/types/sanity-typings'
+import { Card } from './Card'
+import info from '../../utils/info.json'
 import Link from 'next/link'
-import { ProjectCard } from './Project'
 
 interface ProjectsProps {
   projects: [Project]
 }
 
-//TODO: Add animated background
+//TODO: Add animated background for the last box
 
 export const ProjectList: React.FC<ProjectsProps> = ({ projects }) => {
   return (
