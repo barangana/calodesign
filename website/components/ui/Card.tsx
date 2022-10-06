@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Text } from '@chakra-ui/react'
+import { Box, chakra, Heading, HStack, Text } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,6 +16,11 @@ const MotionBox = motion(Box)
 
 export const Card: React.FC<CardProps> = ({ data, section }) => {
   const [isShown, setIsShown] = useState(false)
+
+  const ChakraImage = chakra(Image, {
+    shouldForwardProp: (prop) =>
+      ['width', 'height', 'src', 'alt'].includes(prop),
+  })
 
   const imageUrl = data.mainImage
     ? urlFor(data.mainImage.asset).width(620).height(560).url()
@@ -36,11 +41,16 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <Image
+        <ChakraImage
           src={imageUrl}
           alt={`${data.title}'s image`}
           width={620}
           height={560}
+          filter='auto'
+          transition='all 0.5s ease'
+          _hover={{
+            brightness: '50%',
+          }}
         />
         {isShown ? (
           section !== Section.Projects ? (

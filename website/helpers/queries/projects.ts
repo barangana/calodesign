@@ -55,3 +55,22 @@ export const limitedProjectsQuery = `
   type
 }
 `
+
+export const singleBlogsQuery = `
+*[_type == "blogs" && slug.current == $slug][0]{
+  _id,
+  slug,
+  mainImage,
+  title,
+  type,
+  content,
+}
+`
+export const minimalInfoBlogsQuery = `
+*[_type == "blogs"]{
+  _id,
+  slug{
+    current
+  },
+}
+`
