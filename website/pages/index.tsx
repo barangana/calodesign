@@ -1,6 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { Box } from '@chakra-ui/react'
-import { Contacts, Layout, MainHero, ProjectList } from '../components'
+import { Contacts, Layout, MainHero, ProjectList, About } from '../components'
 import info from '../utils/info.json'
 import { sanityClient } from '../clients/sanity'
 import { limitedProjectsQuery } from '../helpers/queries/projects'
@@ -14,8 +13,9 @@ const Home: NextPage<HomeProps> = ({ data }) => {
   return (
     <Layout>
       <MainHero title={info.main_hero_title} />
-      <Box>Main Content</Box>
+      <About />
       <ProjectList projects={data} />
+      <Contacts />
     </Layout>
   )
 }
