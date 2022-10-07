@@ -1,4 +1,5 @@
 {
+  "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a volutpat diam. Nullam sem orci, eleifend iaculis vestibulum vel, auctor vitae tellus. Nullam sit amet ipsum sit amet nisl aliquet iaculis. Aenean lacinia nisl sed ligula imperdiet, mattis pretium magna placerat. Aenean condimentum orci eget pretium aliquam. Cras feugiat ante ut elit bibendum placerat. Ut ornare tellus quis arcu finibus ullamcorper. Nulla ac urna lobortis odio consectetur consequat. Vestibulum lectus tellus, scelerisque ut lectus vel, placerat blandit nisl.",
   "copyright": "© ",
   "copyright_rights": "All rights reserved.",
   "branding": "Calodesign",
@@ -18,5 +19,7 @@
   "about_us_title": "About Us",
   "about_us_paragraph": "CALO Design is a Manila-based designers' hub, specializing in cutting edge designs and implementing interior design projects. We combine aesthetics and ergonomics of comfort in houses, condominiums, offices, and retail spaces that we work on. We believe in the importance of creating diversified styles with high quality, and fast-paced delivery of collaterals to our clients.",
   "about_us_title_2": "INTERIOR BRANDING",
-  "about_us_paragraph_2": "“According to some of them, one of our main advantages is our ability to combine unique elements of client’s requests and deliver our collaterals fast”"
+  "about_us_paragraph_2": "“According to some of them, one of our main advantages is our ability to combine unique elements of client’s requests and deliver our collaterals fast”",
+  "our_projects": "Our Projects",
+  "our_blogs": "Our Blogs"
 }

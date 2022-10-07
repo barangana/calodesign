@@ -1,4 +1,4 @@
-import { Heading } from '@chakra-ui/react'
+import { Flex, Heading, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import React from 'react'
 import { sanityClient } from '../../clients/sanity'
@@ -6,6 +6,7 @@ import { Layout, Lists } from '../../components'
 import { multipleBlogsQuery } from '../../helpers/queries/projects'
 import { Section } from '../../utils/types/enums'
 import { Blogs } from '../../utils/types/sanity-typings'
+import info from '../../utils/info.json'
 
 interface BlogsProps {
   data: [Blogs]
@@ -14,7 +15,10 @@ interface BlogsProps {
 const Blogs: NextPage<BlogsProps> = ({ data }) => {
   return (
     <Layout>
-      <Heading>Blogs</Heading>
+      <Flex my={16} mx={16} justify='space-between'>
+        <Heading pt={12}>{info.our_blogs}</Heading>
+        <Text w='96'>{info.lorem_ipsum}</Text>
+      </Flex>
       <Lists data={data} section={Section.Blogs} />
     </Layout>
   )
