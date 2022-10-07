@@ -8,8 +8,8 @@ import { Section } from '../../utils/types/enums'
 import { Blogs, Project } from '../../utils/types/sanity-typings'
 
 interface CardProps {
-  data: Project & Blogs
   section: string
+  data: Project & Blogs
 }
 
 const MotionBox = motion(Box)
@@ -53,15 +53,7 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
           />
         </Box>
         {isShown ? (
-          section !== Section.Projects ? (
-            <>
-              <Box position='absolute' bottom='8px' pb='8' pl='8'>
-                <Heading size='lg' color='white'>
-                  {data.title}
-                </Heading>
-              </Box>
-            </>
-          ) : (
+          section === Section.Projects ? (
             <>
               <HStack position='absolute' top='0px' pt='8' pl='8'>
                 <Text fontSize='md' color='white'>
@@ -71,6 +63,14 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
                   {`${data.size} SQM`}
                 </Text>
               </HStack>
+              <Box position='absolute' bottom='8px' pb='8' pl='8'>
+                <Heading size='lg' color='white'>
+                  {data.title}
+                </Heading>
+              </Box>
+            </>
+          ) : (
+            <>
               <Box position='absolute' bottom='8px' pb='8' pl='8'>
                 <Heading size='lg' color='white'>
                   {data.title}

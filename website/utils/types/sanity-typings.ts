@@ -10,14 +10,14 @@ export type SanityImage = {
 export type Project = {
   _id: string
   title: string
-  size: string
-  type: string
   mainImage: SanityImage
-  imagesGallery: SanityImage[]
   slug: {
     current: string
   }
   content: string
+  imagesGallery?: SanityImage[]
+  size?: string
+  type?: string
 }
 
 export type Blogs = {
