@@ -18,8 +18,7 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
   const [isShown, setIsShown] = useState(false)
 
   const ChakraImage = chakra(Image, {
-    shouldForwardProp: (prop) =>
-      ['width', 'height', 'src', 'alt'].includes(prop),
+    shouldForwardProp: (prop) => ['layout', 'src', 'alt'].includes(prop),
   })
 
   const imageUrl = data.mainImage
@@ -41,22 +40,22 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <ChakraImage
-          src={imageUrl}
-          alt={`${data.title}'s image`}
-          width={620}
-          height={560}
-          filter='auto'
-          transition='all 0.5s ease'
-          _hover={{
-            brightness: '50%',
-          }}
-        />
+        <Box width='620' height={['300', '560']}>
+          <ChakraImage
+            src={imageUrl}
+            alt={`${data.title}'s image`}
+            filter='auto'
+            layout='fill'
+            transition='all 0.5s ease'
+            _hover={{
+              brightness: '50%',
+            }}
+          />
+        </Box>
         {isShown ? (
           section !== Section.Projects ? (
             <>
-              <HStack position='absolute' top='0px'></HStack>
-              <Box position='absolute' bottom='8px'>
+              <Box position='absolute' bottom='8px' pb='8' pl='8'>
                 <Heading size='lg' color='white'>
                   {data.title}
                 </Heading>
@@ -64,15 +63,15 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
             </>
           ) : (
             <>
-              <HStack position='absolute' top='0px'>
-                <Text size='sm' color='white'>
+              <HStack position='absolute' top='0px' pt='8' pl='8'>
+                <Text fontSize='md' color='white'>
                   {data.type}
                 </Text>
-                <Text size='sm' color='white'>
+                <Text fontSize='md' color='white'>
                   {`${data.size} SQM`}
                 </Text>
               </HStack>
-              <Box position='absolute' bottom='8px'>
+              <Box position='absolute' bottom='8px' pb='8' pl='8'>
                 <Heading size='lg' color='white'>
                   {data.title}
                 </Heading>

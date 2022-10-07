@@ -14,11 +14,11 @@ interface ProjectsProps {
 
 export const ProjectList: React.FC<ProjectsProps> = ({ projects }) => {
   return (
-    <Box>
+    <Box mb={12}>
       <Flex justify='center'>
-        <Heading pb={16}>Our Projects</Heading>
+        <Heading pb={12}>Our Projects</Heading>
       </Flex>
-      <SimpleGrid columns={2} spacing={15}>
+      <SimpleGrid columns={[1, 2]} spacing={15}>
         {projects.map((project) => (
           <Card key={project._id} data={project} section={Section.Projects} />
         ))}
@@ -27,8 +27,8 @@ export const ProjectList: React.FC<ProjectsProps> = ({ projects }) => {
             bgImg={'/test.jpg'}
             justify='center'
             cursor='pointer'
-            width={617}
-            height={557}
+            width='620'
+            height={['300', '560']}
           >
             <Flex align='center'>
               <Heading size='md' color='white'>

@@ -13,7 +13,7 @@ const Home: NextPage<HomeProps> = ({ data }) => {
   return (
     <Layout>
       <MainHero title={info.main_hero_title} />
-      <About />
+      <About height='100vh' />
       <ProjectList projects={data} />
       <Contacts />
     </Layout>

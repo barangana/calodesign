@@ -1,9 +1,15 @@
 import { NextPage } from 'next'
 import React from 'react'
-import { Layout } from '../components'
+import { About, Layout, MainHero } from '../components'
 
 export const AboutPage: NextPage = () => {
-  return <Layout>About Page</Layout>
+  return (
+    <Layout>
+      <MainHero title='Philosophy of Calodesign' />
+
+      <About />
+    </Layout>
+  )
 }
 
 export default AboutPage
