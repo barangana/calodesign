@@ -59,8 +59,9 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
 
       <Flex
         w='100vw'
-        bg='white'
         zIndex={20}
+        bg='black'
+        opacity='0.9'
         h='100vh'
         pos='fixed'
         top='0'
@@ -95,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
             ))}
           </Stack>
           <Flex align='center'>
-            <Button variant='outline'>{info.request_button}</Button>
+            <Button variant='primary'>{info.request_button}</Button>
           </Flex>
         </Flex>
       </Flex>
