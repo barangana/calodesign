@@ -2,6 +2,8 @@ import React from 'react'
 import { Box, Flex, Heading, Text, Link, VStack } from '@chakra-ui/react'
 import info from '../../utils/info.json'
 
+//TODO: Fix completely
+
 export const Social = () => {
   return (
     <Box>

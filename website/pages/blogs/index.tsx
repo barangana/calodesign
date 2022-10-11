@@ -7,16 +7,26 @@ import { multipleBlogsQuery } from '../../helpers/queries/projects'
 import { Section } from '../../utils/types/enums'
 import { Blogs } from '../../utils/types/sanity-typings'
 import info from '../../utils/info.json'
+import { motion } from 'framer-motion'
 
 interface BlogsProps {
   data: [Blogs]
 }
 
+const MotionHeading = motion(Heading)
+
 const Blogs: NextPage<BlogsProps> = ({ data }) => {
   return (
     <Layout>
       <Flex my={16} mx={16} justify='space-between'>
-        <Heading pt={12}>{info.our_blogs}</Heading>
+        <MotionHeading
+          pt={12}
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          {info.our_blogs}
+        </MotionHeading>
         <Text w='96'>{info.lorem_ipsum}</Text>
       </Flex>
       <Lists data={data} section={Section.Blogs} />

@@ -1,5 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { Contacts, Layout, MainHero, ProjectList, About } from '../components'
+import {
+  Contacts,
+  Layout,
+  MainHero,
+  ProjectList,
+  About,
+  Social,
+} from '../components'
 import info from '../utils/info.json'
 import { sanityClient } from '../clients/sanity'
 import { limitedProjectsQuery } from '../helpers/queries/projects'
@@ -15,6 +22,7 @@ const Home: NextPage<HomeProps> = ({ data }) => {
       <MainHero title={info.main_hero_title} />
       <About height='100vh' />
       <ProjectList projects={data} />
+      <Social />
       <Contacts />
     </Layout>
   )

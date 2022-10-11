@@ -16,7 +16,7 @@ export const ProjectList: React.FC<ProjectsProps> = ({ projects }) => {
   return (
     <Box mb={12}>
       <Flex justify='center'>
-        <Heading pb={12}>Our Projects</Heading>
+        <Heading pb={12}>{info.our_projects}</Heading>
       </Flex>
       <SimpleGrid columns={[1, 2]} spacing={15}>
         {projects.map((project) => (
