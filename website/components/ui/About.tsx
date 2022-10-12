@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, chakra, Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
@@ -10,24 +10,26 @@ interface AboutProps {
 
 const MotionBox = motion(Box)
 
-export const About: React.FC<AboutProps> = ({ height }) => {
+export const About: React.FC<AboutProps> = () => {
   return (
-    <Box h={height} mt={40} mb={40}>
-      <SimpleGrid columns={2} spacing={36} pl={12}>
+    <Box mt={40} mb={40}>
+      <SimpleGrid columns={[1, 2]} spacing={[10, 36]} pl={[0, 12]}>
         <MotionBox
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Heading pb={4}>{info.about_us_title}</Heading>
-          <Text>{info.about_us_paragraph}</Text>
+          <Heading pb={4} textAlign={['center', 'left']}>
+            {info.about_us_title}
+          </Heading>
+          <Text textAlign={['center', 'left']}>{info.about_us_paragraph}</Text>
         </MotionBox>
-        <Box position='relative'>
+        <Box position='relative' display={['none', 'inline']}>
           <Image src='/test.jpg' alt='test' width='500' height='560' />
         </Box>
-        <Box>
+        <Box position='relative'>
           <Image src='/test.jpg' alt='test' width={300} height={300} />
-          <Box position='relative' bottom='96' left='52'>
+          <Box position='relative' bottom={['12', '96']} left={[0, 52]}>
             <Image src='/test.jpg' alt='test' width={150} height={150} />
           </Box>
         </Box>
