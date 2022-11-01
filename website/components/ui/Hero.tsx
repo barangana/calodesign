@@ -20,6 +20,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description, img }) => {
         layout='fill'
         filter='auto'
         brightness='55%'
+        objectFit='cover'
       />
       <Box pl={[4, 4, 32]} pr={[4, 4, 32]} position='absolute' top='0px'>
         <Heading pt={[32, 32, 48]} color='white'>

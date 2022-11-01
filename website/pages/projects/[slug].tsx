@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem } from '@chakra-ui/react'
+import { Box, chakra, Grid, GridItem } from '@chakra-ui/react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { sanityClient, urlFor } from '../../clients/sanity'
@@ -8,6 +8,8 @@ import {
   singleProjectsQuery,
 } from '../../helpers/queries/projects'
 import { Project } from '../../utils/types/sanity-typings'
+
+//TODO: Add in sanity a rule that says to find appropriate resolution for images
 
 interface ProjectProps {
   data: Project
@@ -24,38 +26,48 @@ const Project: NextPage<ProjectProps> = ({ data }) => {
       )
     : []
 
+  const StyledChakraImage = chakra(Image, {
+    shouldForwardProp: (prop) =>
+      ['width', 'height', 'src', 'alt', 'layout'].includes(prop),
+  })
+
   return (
     <Layout>
-      <Box>
-        <Hero title={data.title} description={data.content} img={imageUrl} />
-        <Box mt={96}>
-          <Grid templateColumns='repeat(2, 1fr)' gap={[2, 4, 6]}>
-            {imageUrlForGallery.map((singleUrl, i) => {
-              if (i % 3 === 0) {
-                return (
-                  <GridItem key={data.imagesGallery[i]._key} colSpan={2}>
-                    <Image
-                      src={singleUrl}
-                      width={1250}
-                      height={650}
-                      alt='Other angle image'
-                    />
-                  </GridItem>
-                )
-              }
+      <Hero title={data.title} description={data.content} img={imageUrl} />
+      <Box mt={96}>
+        <Grid templateColumns='repeat(2, 1fr)' gap={[2, 4, 6]}>
+          {imageUrlForGallery.map((singleUrl, i) => {
+            if (i % 3 === 0) {
               return (
-                <GridItem key={data.imagesGallery[i]._key}>
-                  <Image
+                <GridItem
+                  key={data.imagesGallery ? data.imagesGallery[i]._key : null}
+                  colSpan={2}
+                >
+                  <StyledChakraImage
                     src={singleUrl}
-                    width={625}
-                    height={950}
+                    width={1250}
+                    height={650}
                     alt='Other angle image'
                   />
                 </GridItem>
               )
-            })}
-          </Grid>
-        </Box>
+            }
+            return (
+              <GridItem
+                key={data.imagesGallery ? data.imagesGallery[i]._key : null}
+                position='relative'
+              >
+                <StyledChakraImage
+                  src={singleUrl}
+                  width={625}
+                  height={950}
+                  alt='Other angle image'
+                  objectFit='cover'
+                />
+              </GridItem>
+            )
+          })}
+        </Grid>
       </Box>
     </Layout>
   )

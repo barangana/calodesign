@@ -2,6 +2,14 @@ import { extendTheme } from '@chakra-ui/react'
 import { Button } from './components'
 
 const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: 'white',
+        color: 'black',
+      },
+    },
+  },
   fonts: {
     heading: 'Montserrat, sans-serif',
     body: 'Montserrat, sans-serif',

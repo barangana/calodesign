@@ -36,9 +36,14 @@ export const Card: React.FC<CardProps> = ({ data, section }) => {
         onMouseLeave={() => {
           setIsShown(false)
         }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        initial='hidden'
+        whileInView='visible'
+        transition={{ duration: 1, delay: 0.3 }}
+        viewport={{ once: true }}
+        variants={{
+          visible: { opacity: 1 },
+          hidden: { opacity: 0 },
+        }}
       >
         <Box width='620' height={['300', '560']}>
           <ChakraImage
