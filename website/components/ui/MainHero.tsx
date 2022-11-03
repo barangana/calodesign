@@ -34,7 +34,7 @@ export const MainHero: React.FC = () => {
         <Heading size='3xl' pb='12'>
           {name}
         </Heading>
-        <Link href='/' pl='12'>
+        <Link href='/' _hover={{ textDecoration: 'none' }}>
           <Text as='b' fontSize='sm'>
             {info.discover_more.toUpperCase()}
           </Text>
