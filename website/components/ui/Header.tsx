@@ -6,12 +6,14 @@ import {
   Link,
   Stack,
   IconButton,
+  Text,
 } from '@chakra-ui/react'
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import NextLink from 'next/link'
 import info from '../../utils/info.json'
 
 // TODO: Might have to change the title to logo : JSX.Element. Come back and fix the IconButtons.
+// TODO: Fix completely the mobile menu
 interface HeaderProps {
   title: string
 }
@@ -35,14 +37,19 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
       <Stack direction={['column', 'row']} align='center'>
         <NextLink href='/' passHref>
           <Link>
-            <Heading size='lg'>{title.toUpperCase()}</Heading>
+            <Heading size='md'>{title.toUpperCase()}</Heading>
           </Link>
         </NextLink>
         {Links.map((link) => (
           <NextLink key={link.label} href={link.href} passHref>
-            <Link p={4} display={['none', 'none', 'flex', 'flex']}>
-              {link.label}
-            </Link>
+            <Text
+              fontSize='xs'
+              p={4}
+              display={['none', 'none', 'flex', 'flex']}
+              cursor='pointer'
+            >
+              {link.label.toUpperCase()}
+            </Text>
           </NextLink>
         ))}
       </Stack>

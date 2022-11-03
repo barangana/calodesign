@@ -19,7 +19,7 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ data }) => {
   return (
     <Layout>
-      <MainHero title={info.main_hero_title} />
+      <MainHero />
       <About height='100vh' />
       <ProjectList projects={data} />
       <Social />

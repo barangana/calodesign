@@ -7,6 +7,8 @@ import { urlFor } from '../../clients/sanity'
 import { Section } from '../../utils/types/enums'
 import { Blogs, Project } from '../../utils/types/sanity-typings'
 
+//TODO: Fix Mobile layout
+
 interface CardProps {
   section: string
   data: Project & Blogs

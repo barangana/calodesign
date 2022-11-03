@@ -6,35 +6,11 @@ import { Card } from './Card'
 import info from '../../utils/info.json'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { imagesArray } from '../../utils/types/images'
 
 interface ProjectsProps {
   projects: [Project]
 }
-
-type ImageArray = {
-  id: number
-  src: string
-}
-
-//TODO: Move images array outside of component
-const imagesArray: ImageArray[] = [
-  {
-    id: 1,
-    src: '/images/image1.jpg',
-  },
-  {
-    id: 2,
-    src: '/images/image2.jpg',
-  },
-  {
-    id: 3,
-    src: '/images/image3.jpg',
-  },
-  {
-    id: 4,
-    src: '/images/image4.jpg',
-  },
-]
 
 const MotionFlex = motion(Flex)
 
