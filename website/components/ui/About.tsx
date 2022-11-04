@@ -4,13 +4,9 @@ import Image from 'next/image'
 import React from 'react'
 import info from '../../utils/info.json'
 
-interface AboutProps {
-  height?: string
-}
-
 const MotionBox = motion(Box)
 
-export const About: React.FC<AboutProps> = () => {
+export const About: React.FC = () => {
   return (
     <Box mt={40} mb={40}>
       <SimpleGrid columns={[1, 2]} spacing={[10, 36]} pl={[0, 12]}>

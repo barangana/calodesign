@@ -7,7 +7,6 @@ import {
   About,
   Social,
 } from '../components'
-import info from '../utils/info.json'
 import { sanityClient } from '../clients/sanity'
 import { limitedProjectsQuery } from '../helpers/queries/projects'
 import { Project } from '../utils/types/sanity-typings'
@@ -20,7 +19,7 @@ const Home: NextPage<HomeProps> = ({ data }) => {
   return (
     <Layout>
       <MainHero />
-      <About height='100vh' />
+      <About />
       <ProjectList projects={data} />
       <Social />
       <Contacts />

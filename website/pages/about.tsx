@@ -1,12 +1,12 @@
 import { NextPage } from 'next'
 import React from 'react'
-import { About, Layout, MainHero } from '../components'
+import { About, Hero, Layout, MainHero } from '../components'
 import info from '../utils/info.json'
 
 export const AboutPage: NextPage = () => {
   return (
     <Layout>
-      <MainHero title={info.philosophy_of_calo} />
+      <Hero title={info.philosophy_of_calo} img={'/test.jpg'} />
       <About />
     </Layout>
   )
