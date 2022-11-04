@@ -10,7 +10,7 @@ interface ListProps {
 
 export const Lists: React.FC<ListProps> = ({ data, section }) => {
   return (
-    <SimpleGrid columns={2} spacing={15}>
+    <SimpleGrid columns={[1, 2]} spacing={15}>
       {data.map((single) => (
         <Card key={single._id} data={single} section={section} />
       ))}

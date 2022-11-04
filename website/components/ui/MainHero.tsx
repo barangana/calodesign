@@ -1,9 +1,11 @@
-import { Box, chakra, Flex, Heading, Link, Text } from '@chakra-ui/react'
+import { Box, chakra, Heading, Link, Text } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { imagesArray } from '../../utils/types/images'
 import info from '../../utils/info.json'
+
+//TODO: Make the useEffect into a custom hook
 
 export const MainHero: React.FC = () => {
   const MotionBox = motion(Box)
@@ -20,6 +22,10 @@ export const MainHero: React.FC = () => {
 
   const { src, name } = imagesArray[currentIndex % imagesArray.length]
 
+  const ChakraImage = chakra(Image, {
+    shouldForwardProp: (prop) => ['layout', 'src', 'alt'].includes(prop),
+  })
+
   return (
     <MotionBox
       position='relative'
@@ -29,8 +35,14 @@ export const MainHero: React.FC = () => {
       exit={{ opacity: 0 }}
       transition={{ delay: 0.5, duration: 0.5 }}
     >
-      <Image src={src} layout='fill' alt={name} />
-      <Box position='absolute' color='white' my='96' mx='44'>
+      <ChakraImage
+        src={src}
+        layout='fill'
+        alt={name}
+        filter='auto'
+        brightness='55%'
+      />
+      <Box position='absolute' color='white' my='72' mx='44'>
         <Heading size='3xl' pb='12'>
           {name}
         </Heading>

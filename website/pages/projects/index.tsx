@@ -18,16 +18,21 @@ const MotionHeading = motion(Heading)
 const Projects: NextPage<ProjectsProps> = ({ data }) => {
   return (
     <Layout>
-      <Flex my={16} mx={16} justify='space-between'>
+      <Flex
+        my={[12, 16]}
+        mx={[4, 16]}
+        justify='space-between'
+        direction={['column', 'row']}
+      >
         <MotionHeading
-          pt={12}
+          pt={[0, 2, 12]}
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
           {info.our_projects}
         </MotionHeading>
-        <Text w='96'>{info.lorem_ipsum}</Text>
+        <Text w={['', 96]}>{info.lorem_ipsum}</Text>
       </Flex>
       <Lists data={data} section={Section.Projects} />
     </Layout>
