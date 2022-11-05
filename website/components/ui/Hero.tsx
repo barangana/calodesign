@@ -1,4 +1,11 @@
-import { Box, chakra, Heading, shouldForwardProp, Text } from '@chakra-ui/react'
+import {
+  Box,
+  chakra,
+  Heading,
+  shouldForwardProp,
+  Text,
+  Flex,
+} from '@chakra-ui/react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -12,7 +19,7 @@ export const Hero: React.FC<HeroProps> = ({ title, description, img }) => {
   const HeroImage = chakra(Image, {
     shouldForwardProp: (prop) => ['layout', 'src', 'alt'].includes(prop),
   })
-  return (
+  return description ? (
     <Box position='relative' h='95vh'>
       <HeroImage
         src={img}
@@ -30,7 +37,12 @@ export const Hero: React.FC<HeroProps> = ({ title, description, img }) => {
           {description}
         </Text>
       </Box>
-      <Box position='absolute'></Box>
     </Box>
+  ) : (
+    <Flex h='95vh' justify='center' bgImage={img}>
+      <Flex align='center'>
+        <Heading color='white'>{title}</Heading>
+      </Flex>
+    </Flex>
   )
 }

@@ -2,7 +2,7 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { sanityClient, urlFor } from '../../clients/sanity'
-import { Hero, Layout } from '../../components'
+import { Layout } from '../../components'
 import {
   minimalInfoBlogsQuery,
   singleBlogsQuery,
@@ -20,21 +20,19 @@ const Blog: NextPage<BlogProps> = ({ data }) => {
 
   return (
     <Layout>
-      <Box>
-        <Flex justify='center' mt={12}>
-          <Image
-            src={imageUrl}
-            alt={`${data.title}'s image`}
-            width={670}
-            height={420}
-          />
-        </Flex>
-        <Box mx={[6, 72]}>
-          <Heading pt={6} pb={6}>
-            {data.title}
-          </Heading>
-          <Text>{data.content}</Text>
-        </Box>
+      <Flex justify='center' mt={12} mb={12}>
+        <Image
+          src={imageUrl}
+          alt={`${data.title}'s image`}
+          width={670}
+          height={420}
+        />
+      </Flex>
+      <Box mx={[6, 72]} pb={24}>
+        <Heading pt={6} pb={6}>
+          {data.title}
+        </Heading>
+        <Text>{data.content}</Text>
       </Box>
     </Layout>
   )
