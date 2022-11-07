@@ -6,6 +6,7 @@ export const clientConfig = {
   dataset: config.sanity.dataset,
   projectId: config.sanity.projectId,
   apiVersion: '2021-03-25',
+  token: config.sanity.token,
   useCdn: true,
 }
 
