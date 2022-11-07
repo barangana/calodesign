@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { imagesArray } from '../../utils/types/images'
 import info from '../../utils/info.json'
 
-//TODO: Make the useEffect into a custom hook
+//TODO: Change this so went they set things up in Sanity to take the values from there
 
 export const MainHero: React.FC = () => {
   const MotionBox = motion(Box)
@@ -20,7 +20,7 @@ export const MainHero: React.FC = () => {
     return () => clearInterval(timerId)
   }, [])
 
-  const { src, name } = imagesArray[currentIndex % imagesArray.length]
+  const { src, name, href } = imagesArray[currentIndex % imagesArray.length]
 
   const ChakraImage = chakra(Image, {
     shouldForwardProp: (prop) => ['layout', 'src', 'alt'].includes(prop),
@@ -46,7 +46,7 @@ export const MainHero: React.FC = () => {
         <Heading size='3xl' pb='12'>
           {name}
         </Heading>
-        <Link href='/' _hover={{ textDecoration: 'none' }}>
+        <Link href={`/projects/${href}`} _hover={{ textDecoration: 'none' }}>
           <Text as='b' fontSize='sm'>
             {info.discover_more.toUpperCase()}
           </Text>
