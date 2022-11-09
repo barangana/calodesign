@@ -17,7 +17,7 @@ const MotionHeading = motion(Heading)
 
 const Projects: NextPage<ProjectsProps> = ({ data }) => {
   return (
-    <Layout>
+    <Layout title={info.projects}>
       <Flex
         my={[12, 16]}
         mx={[4, 16]}

@@ -5,7 +5,7 @@ import info from '../utils/info.json'
 
 export const AboutPage: NextPage = () => {
   return (
-    <Layout>
+    <Layout title={info.about_us}>
       <Hero img={'/test.jpg'} title={info.philosophy_of_calo} />
       <About />
     </Layout>

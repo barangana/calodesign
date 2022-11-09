@@ -10,6 +10,7 @@ import {
 import { sanityClient } from '../clients/sanity'
 import { limitedProjectsQuery } from '../helpers/queries/projects'
 import { Project } from '../utils/types/sanity-typings'
+import info from '../utils/info.json'
 
 interface HomeProps {
   data: [Project]
@@ -17,7 +18,7 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ data }) => {
   return (
-    <Layout>
+    <Layout title={info.branding}>
       <MainHero />
       <About />
       <ProjectList projects={data} />
