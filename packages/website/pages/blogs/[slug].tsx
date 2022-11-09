@@ -19,7 +19,7 @@ const Blog: NextPage<BlogProps> = ({ data }) => {
     : ''
 
   return (
-    <Layout>
+    <Layout title={`Calodesign | ${data.title}`}>
       <Flex justify='center' mt={12} mb={12}>
         <Image
           src={imageUrl}

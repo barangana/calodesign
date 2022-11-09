@@ -32,7 +32,7 @@ const Project: NextPage<ProjectProps> = ({ data }) => {
   })
 
   return (
-    <Layout>
+    <Layout title={`Calodeseign | ${data.title}`}>
       <Hero title={data.title} description={data.content} img={imageUrl} />
       <Box mt={96}>
         <Grid templateColumns='repeat(2, 1fr)' gap={[2, 4, 6]}>
