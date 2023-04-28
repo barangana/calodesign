@@ -3,7 +3,6 @@ import {
   Button,
   Flex,
   Heading,
-  Link,
   Stack,
   IconButton,
   Text,
@@ -36,9 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
     <Flex p={2} justify='space-between' bg='black' color='white'>
       <Stack direction={['column', 'row']} align='center'>
         <NextLink href='/' passHref>
-          <Link>
-            <Heading size='md'>{title.toUpperCase()}</Heading>
-          </Link>
+          <Heading size='md'>{title.toUpperCase()}</Heading>
         </NextLink>
         {Links.map((link) => (
           <NextLink key={link.label} href={link.href} passHref>
@@ -92,13 +89,11 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
         <Flex direction='column' align='center'>
           <Stack align='center'>
             <NextLink href='/' passHref>
-              <Link>
-                <Heading size='lg'>Home</Heading>
-              </Link>
+              <Heading size='lg'>Home</Heading>
             </NextLink>
             {Links.map((link) => (
               <NextLink key={link.label} href={link.href} passHref>
-                <Link p={4}>{link.label}</Link>
+                {link.label}
               </NextLink>
             ))}
           </Stack>
